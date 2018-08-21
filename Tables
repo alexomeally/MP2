@@ -16,3 +16,17 @@ Create TABLE Users (
     UNIQUE(MyMusic))
 ;
 
+CREATE TABLE Artists (
+    UserID Integer unsigned not null,
+    Artistname varchar(64) not null,
+    Country varchar(32) not null,
+    CovPic varchar(64) not null,
+    Facebook varchar(255),
+    Instagram varchar(255),
+    Twitter varchar(255),
+    Website varchar(255),
+    Bio TEXT,
+    PRIMARY KEY(UserID),
+    FOREIGN KEY (UserID) REFERENCES users(UserID)
+);
+
