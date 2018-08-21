@@ -1,3 +1,18 @@
 CREATE DATABASE DoubleTCloud
 ;
- 
+
+Create TABLE Users (
+    UserID integer unsigned AUTO_INCREMENT not null,
+	Username varchar(32) not null,
+    UPassword char(32) not null,
+    FName varchar(32) not null,
+    SName varchar(32),
+    Email varchar(64) not null,
+    MyMusic integer unsigned not null,
+    ProfPic varchar(64) not null,
+    PRIMARY KEY(UserID),
+    UNIQUE(Username),
+    UNIQUE(Email),
+    UNIQUE(MyMusic))
+;
+
