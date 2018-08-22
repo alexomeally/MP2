@@ -49,3 +49,12 @@ CREATE TABLE Tracks (
     mp3File varchar(64) not null,
     PRIMARY KEY(TrackID)
 );
+
+CREATE TABLE AlbumTracks(
+    AlbumID Integer Unsigned not null,
+    TrackID Integer Unsigned not null,
+    PRIMARY KEY(AlbumID, TrackID),
+    FOREIGN KEY(AlbumID) REFERENCES albums(AlbumID),
+    FOREIGN KEY(TrackID) REFERENCES tracks(TrackID)
+);
+
