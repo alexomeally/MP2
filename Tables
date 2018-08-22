@@ -127,3 +127,11 @@ CREATE TABLE PlaylistFollowers(
     FOREIGN KEY(UserID) REFERENCES users(UserID)
 );
 
+CREATE TABLE UserFollowers(
+    Follower Integer unsigned not null,
+    Followed Integer unsigned not null,
+    PRIMARY KEY(Follower,Followed),
+    FOREIGN KEY(Follower) REFERENCES users(UserID),
+    FOREIGN KEY(Followed) REFERENCES users(UserID)
+);
+
