@@ -36,9 +36,9 @@ CREATE TABLE Albums (
     Albumname varchar(64) not null,
     Art varchar(64) not null,
     Released Datetime not null,
-    ArtistID Integer Unsigned not null,
+    UserID Integer Unsigned not null,
     PRIMARY KEY(AlbumID),
-    FOREIGN KEY (ArtistID) REFERENCES artists(UserID)
+    FOREIGN KEY (UserID) REFERENCES artists(UserID)
 );
 
 CREATE TABLE Tracks (
@@ -56,5 +56,13 @@ CREATE TABLE AlbumTracks(
     PRIMARY KEY(AlbumID, TrackID),
     FOREIGN KEY(AlbumID) REFERENCES albums(AlbumID),
     FOREIGN KEY(TrackID) REFERENCES tracks(TrackID)
+);
+
+CREATE TABLE TrackArtists(
+    TrackID Integer Unsigned not null,
+    UserID Integer Unsigned not null,
+    PRIMARY KEY(TrackID, UserID),
+    FOREIGN KEY(TrackID) REFERENCES tracks(TrackID),
+    FOREIGN KEY(UserID) REFERENCES artists(UserID)
 );
 
