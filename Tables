@@ -41,7 +41,7 @@ CREATE TABLE Albums (
     FOREIGN KEY (UserID) REFERENCES artists(UserID)
 );
 
-CREATE TABLE Tracks (
+	CREATE TABLE Tracks (
     TrackID Integer Unsigned not null AUTO_INCREMENT,
     Trackname varchar(64) not null,
     Length Time not null,
@@ -64,5 +64,16 @@ CREATE TABLE TrackArtists(
     PRIMARY KEY(TrackID, UserID),
     FOREIGN KEY(TrackID) REFERENCES tracks(TrackID),
     FOREIGN KEY(UserID) REFERENCES artists(UserID)
+);
+
+CREATE TABLE Playlists(
+    PlaylistID Integer Unsigned not null AUTO_INCREMENT,
+    UserID Integer Unsigned not null,
+    Playlistname varchar(64) not null,
+    DateCreated DateTime  not null,
+    Art Varchar(64) not null,
+    Description Varchar(255) not null,
+    PRIMARY KEY(PlaylistID),
+    Foreign Key(UserID) REFERENCES users(UserID)
 );
 
