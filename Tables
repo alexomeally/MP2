@@ -80,3 +80,14 @@ CREATE TABLE Playlists(
 ALTER TABLE Users ADD
 	FOREIGN KEY(MyMusic) REFERENCES Playlists(PlaylistID)
 ;
+
+CREATE TABLE Posts(
+    PostID integer unsigned not null AUTO_INCREMENT,
+    UserID Integer unsigned not null,
+    DatePosted DateTime not null,
+    Text varchar(255) not null,
+    Link varchar(255),
+    PRIMARY KEY(PostID),
+    FOREIGN KEY(UserID) REFERENCES users(UserID)
+);
+
