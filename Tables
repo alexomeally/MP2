@@ -100,4 +100,11 @@ CREATE TABLE PlaylistTracks(
     FOREIGN KEY(PlaylistID) REFERENCES Playlists(PlaylistID)
 );
 
-
+CREATE TABLE Listens(
+    UserID Integer Unsigned not null,
+    TrackID Integer Unsigned not null,
+    DateListened Datetime not null,
+    PRIMARY KEY(UserID, TrackID, DateListened),
+    FOREIGN KEY(UserID) REFERENCES users(UserID),
+    FOREIGN KEY(TrackID) REFERENCES tracks(TrackID)
+);
