@@ -91,3 +91,13 @@ CREATE TABLE Posts(
     FOREIGN KEY(UserID) REFERENCES users(UserID)
 );
 
+
+CREATE TABLE PlaylistTracks(
+    TrackID Integer Unsigned not null,
+    PlaylistID Integer Unsigned not null,
+    PRIMARY KEY(TrackID, PlaylistID),
+    FOREIGN KEY(TrackID) REFERENCES Tracks(TrackID),
+    FOREIGN KEY(PlaylistID) REFERENCES Playlists(PlaylistID)
+);
+
+
