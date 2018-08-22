@@ -119,3 +119,11 @@ CREATE TABLE LikedSongs(
     FOREIGN KEY(TrackID) REFERENCES tracks(TrackID)
 );
 
+CREATE TABLE PlaylistFollowers(
+    PlaylistID Integer Unsigned not null,
+    UserID Integer Unsigned not null,
+    PRIMARY KEY(PlaylistID, UserID),
+    FOREIGN KEY(PlaylistID) REFERENCES playlists(PlaylistID),
+    FOREIGN KEY(UserID) REFERENCES users(UserID)
+);
+
