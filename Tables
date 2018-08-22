@@ -108,3 +108,14 @@ CREATE TABLE Listens(
     FOREIGN KEY(UserID) REFERENCES users(UserID),
     FOREIGN KEY(TrackID) REFERENCES tracks(TrackID)
 );
+
+
+CREATE TABLE LikedSongs(
+    UserID Integer Unsigned not null,
+    TrackID Integer Unsigned not null,
+    TLike Boolean not null,
+    PRIMARY KEY(UserID,TrackID),
+    FOREIGN KEY(UserID) REFERENCES users(UserID),
+    FOREIGN KEY(TrackID) REFERENCES tracks(TrackID)
+);
+
