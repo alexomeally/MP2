@@ -77,3 +77,6 @@ CREATE TABLE Playlists(
     Foreign Key(UserID) REFERENCES users(UserID)
 );
 
+ALTER TABLE Users ADD
+	FOREIGN KEY(MyMusic) REFERENCES Playlists(PlaylistID)
+;
