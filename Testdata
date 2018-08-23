@@ -19,10 +19,10 @@ INSERT INTO `tracks` (`TrackID`, `Trackname`, `Length`, `Genre`, mp3File`) VALUE
 (NULL, 'Australian Pie', '00:08:36', 'Folk Rock', 'australian_pie.mp3');
 
 INSERT INTO `albumtracks` (`AlbumID`, `TrackID`) VALUES 
-('2', '1'),
-('3', '1'),
-('1', '3'),
-('3', '3');
+('2', '1', '1'),
+('3', '1', '1'),
+('1', '3', '1'),
+('3', '3', '2');
 
 
 INSERT INTO `userfollowers` (`Follower`, `Followed`) VALUES 
@@ -38,7 +38,7 @@ INSERT INTO `trackartists` (`TrackID`, `UserID`) VALUES
 ('1', '5'),
 ('2', '6');
 
-INSERT INTO `posts` (`PostID`, `UserID`, `DatePosted`, `Text`, `Link`) VALUES 
+INSERT INTO `posts` (`PostID`, `UserID`, `DatePosted`, `PostText`, `Link`) VALUES 
 (NULL, '4', '2018-08-23 03:00:00', 'OMG I FOUND THIS NEW SINGER AND HE IS SOOOOO COOOOLLL!!!!', 'link to Singerdude'),
 (NULL, '5', '2018-08-24 00:00:00', 'Listen to my new album!', 'album link'),
 (NULL, '4', '2018-08-15 00:00:00', 'Am feeling in the mood for some jazz today', NULL);
