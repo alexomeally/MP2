@@ -8,13 +8,11 @@ Create TABLE Users (
     FName varchar(32) not null,
     SName varchar(32),
     Email varchar(64) not null,
-    MyMusic integer unsigned not null,
     ProfPic varchar(64) not null,
     PRIMARY KEY(UserID),
     UNIQUE(Username),
     UNIQUE(Email),
-    UNIQUE(MyMusic))
-;
+);
 
 CREATE TABLE Artists (
     UserID Integer unsigned not null,
@@ -77,9 +75,7 @@ CREATE TABLE Playlists(
     Foreign Key(UserID) REFERENCES users(UserID)
 );
 
-ALTER TABLE Users ADD
-	FOREIGN KEY(MyMusic) REFERENCES Playlists(PlaylistID)
-;
+
 
 CREATE TABLE Posts(
     PostID integer unsigned not null AUTO_INCREMENT,
@@ -133,5 +129,13 @@ CREATE TABLE UserFollowers(
     PRIMARY KEY(Follower,Followed),
     FOREIGN KEY(Follower) REFERENCES users(UserID),
     FOREIGN KEY(Followed) REFERENCES users(UserID)
+);
+
+CREATE TABLE MyMusic(
+    UserID Integer Unsigned not null,
+    PlaylistID Integer Unsigned not null,
+    PRIMARY KEY(UserID),
+    FOREIGN KEY(UserID) REFERENCES users(UserID),
+    FOREIGN KEY(PlaylistID) REFERENCES playlists(PlaylistID)
 );
 
