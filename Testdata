@@ -1,0 +1,4 @@
+INSERT INTO users(Username,UPassword,FName,SName,Email,ProfPic) VALUES
+	('Bob12345','5f4dcc3b5aa765d61d8327deb882cf99','Bob','Smith','bobsmith@gmail.com','default.png'),
+	('singerdude','5f4dcc3b5aa765d61d8327deb882cf99','Singer',NULL,'singer@gmail.com', 'default.png');
+

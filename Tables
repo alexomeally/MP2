@@ -11,7 +11,7 @@ Create TABLE Users (
     ProfPic varchar(64) not null,
     PRIMARY KEY(UserID),
     UNIQUE(Username),
-    UNIQUE(Email),
+    UNIQUE(Email)
 );
 
 CREATE TABLE Artists (
