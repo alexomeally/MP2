@@ -1,0 +1,9 @@
+User Login
+
+SELECT UserID /* can possibly change depending on what is needed*/
+FROM Users 
+WHERE (username = "'.$username.'" AND UPassword="'.$UPassword.'");
+
+Album Tracks
+
+SELECT Trackname, 

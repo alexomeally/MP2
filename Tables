@@ -51,9 +51,11 @@ CREATE TABLE Albums (
 CREATE TABLE AlbumTracks(
     AlbumID Integer Unsigned not null,
     TrackID Integer Unsigned not null,
+    Position Integer Unsigned not null,
     PRIMARY KEY(AlbumID, TrackID),
     FOREIGN KEY(AlbumID) REFERENCES albums(AlbumID),
-    FOREIGN KEY(TrackID) REFERENCES tracks(TrackID)
+    FOREIGN KEY(TrackID) REFERENCES tracks(TrackID),
+    UNIQUE(AlbumID, Position)
 );
 
 CREATE TABLE TrackArtists(
