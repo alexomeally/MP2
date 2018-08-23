@@ -13,3 +13,14 @@ INSERT INTO `albums` (`AlbumID`, `Albumname`, `Art`, `Released`, `UserID`) VALUE
 (NULL, 'Songs in the key of death', 'defaultalb.png', '1976-06-04 00:00:00', '6'),
 (NULL, 'Best of Stevie and Singerman', 'defaultalb.png', '2018-09-06 00:00:00', '8');
 
+INSERT INTO `tracks` (`TrackID`, `Trackname`, `Length`, `Genre`, mp3File`) VALUES 
+(NULL, 'Future Time Paradise', '00:03:29', 'Classic Soul', 'future_time_paradise.mp3'),
+(NULL, 'Superstition', '00:04:27', 'Classic Soul', 'Ssperstition.mp3'),
+(NULL, 'Australian Pie', '00:08:36', 'Folk Rock', 'australian_pie.mp3');
+
+INSERT INTO `albumtracks` (`AlbumID`, `TrackID`) VALUES 
+('2', '1'),
+('3', '1'),
+('1', '3'),
+('3', '3');
+
