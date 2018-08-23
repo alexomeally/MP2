@@ -1,6 +1,15 @@
 INSERT INTO users(Username,UPassword,FName,SName,Email,ProfPic) VALUES
 	('Bob12345','5f4dcc3b5aa765d61d8327deb882cf99','Bob','Smith','bobsmith@gmail.com','default.png'),
-	('singerdude','5f4dcc3b5aa765d61d8327deb882cf99','Singer',NULL,'singer@gmail.com', 'default.png');
+	('singerdude','5f4dcc3b5aa765d61d8327deb882cf99','Singer',NULL,'singer@gmail.com', 'default.png'),
+	(NULL, 'stevieyaboi', '5f4dcc3b5aa765d61d8327deb882cf99', 'Stevie', 'Wunderwaffe', 'Stevie@gmail.com', 'default.png'),
+	(NULL, 'Phil', '5f4dcc3b5aa765d61d8327deb882cf99', 'Phillip', 'Cracken', 'Philly@gmail.com', 'default.png'),
+	(NULL, 'variousdudes', '5f4dcc3b5aa765d61d8327deb882cf99', 'Various', 'Artists', 's8142911@gmail.com', 'default.png');
 
-INSERT INTO `artists` (`UserID`, `Artistname`, `Country`, `CovPic`, `Facebook`, `Instagram`, `Twitter`, `Website`, `Bio`) VALUES ('5', 'I Am Singer Dude', 'Australia', 'defaultcov.png', 'fb.com', NULL, 'twitter.com', 'google.com', 'Hello I am Singer Dude and I love to sing. I hope you like my music <3 :)!!!!!'); 
+INSERT INTO `artists` (`UserID`, `Artistname`, `Country`, `CovPic`, `Facebook`, `Instagram`, `Twitter`, `Website`, `Bio`) VALUES ('5', 'I Am Singer Dude', 'Australia', 'defaultcov.png', 'fb.com', NULL, 'twitter.com', 'google.com', 'Hello I am Singer Dude and I love to sing. I hope you like my music <3 :)!!!!!'),
+('6', 'Stevie Wunderwaffe', 'United States of America', 'defaultcov.png', 'fb.com', 'instagram.com', NULL, NULL, 'Stevie wonder is my cousin'),
+('8', 'Various Artists', 'None', 'defaultcov.png', NULL, NULL, NULL, NULL, 'Various Artists: is not a band but claims ownership of all nonclaimed albums'); 
+
+INSERT INTO `albums` (`AlbumID`, `Albumname`, `Art`, `Released`, `UserID`) VALUES (NULL, 'My First Album Lol', 'defaultalb.png', '2018-08-23 00:00:00', '5'),
+(NULL, 'Songs in the key of death', 'defaultalb.png', '1976-06-04 00:00:00', '6'),
+(NULL, 'Best of Stevie and Singerman', 'defaultalb.png', '2018-09-06 00:00:00', '8');
 
