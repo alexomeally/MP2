@@ -2,3 +2,5 @@ INSERT INTO users(Username,UPassword,FName,SName,Email,ProfPic) VALUES
 	('Bob12345','5f4dcc3b5aa765d61d8327deb882cf99','Bob','Smith','bobsmith@gmail.com','default.png'),
 	('singerdude','5f4dcc3b5aa765d61d8327deb882cf99','Singer',NULL,'singer@gmail.com', 'default.png');
 
+INSERT INTO `artists` (`UserID`, `Artistname`, `Country`, `CovPic`, `Facebook`, `Instagram`, `Twitter`, `Website`, `Bio`) VALUES ('5', 'I Am Singer Dude', 'Australia', 'defaultcov.png', 'fb.com', NULL, 'twitter.com', 'google.com', 'Hello I am Singer Dude and I love to sing. I hope you like my music <3 :)!!!!!'); 
+
