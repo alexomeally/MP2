@@ -53,8 +53,18 @@
 	}
 	else
 	{
-		echo '<p> You are already logged in';
+		echo '<p> You are already logged in
+
+	<form method="POST" action="loginRedirect.php">
+		<input type="submit" name="logout" value="Log Out">
+	</form>
+
+		';
 	} ?>
+	<br><br><br>
+	<form action="index.php">
+		<input type="submit" name="Index" value="Index">
+	</form>
 
 </body>
 </html>

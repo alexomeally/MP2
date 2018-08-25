@@ -7,7 +7,7 @@
 <html>
 <head>
 	<title>Index</title>
-</head>
+</head>	
 <body>
 	This is the index
 	You have probably succeeded in coding if you reach here
