@@ -6,4 +6,6 @@ WHERE (username = "'.$username.'" AND UPassword="'.$UPassword.'");
 
 Album Tracks
 
-SELECT Trackname, 
+SELECT Trackname, Length, mp3file
+FROM Tracks
+WHERE 
