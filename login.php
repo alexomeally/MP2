@@ -49,7 +49,10 @@
 			</tr>
 		</table>
 
-	</form>');
+	</form>	
+	<a href="createAccount.php">Create a New Account</a>
+
+	');
 	}
 	else
 	{
@@ -65,6 +68,8 @@
 	<form action="index.php">
 		<input type="submit" name="Index" value="Index">
 	</form>
+
+
 
 </body>
 </html>

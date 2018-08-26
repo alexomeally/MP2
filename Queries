@@ -4,6 +4,15 @@ SELECT UserID /* can possibly change depending on what is needed*/
 FROM Users 
 WHERE (username = "'.$username.'" AND UPassword="'.$UPassword.'");
 
+How many times a song has been played
+
+SELECT COUNT(*) 
+FROM listens 
+WHERE (TrackID="'.$trackid.'"); 
+
+
+
+
 Album Tracks
 
 SELECT Trackname, Length, mp3file
