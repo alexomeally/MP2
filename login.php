@@ -20,7 +20,7 @@
 					<h4>Name</h4>
 				</td>
 				<td>
-					<input type="text" name="username" autofocus=1 value="">	
+					<input type="text" name="username" autofocus=1 value="" required>	
 				</td>
 			</tr>
 			<tr>
@@ -28,7 +28,7 @@
 					<h4>Password</h4>
 				</td>
 				<td>
-					<input type="Password" name="UPassword">
+					<input type="Password" name="UPassword" required>
 				</td>
 			</tr>
 			<tr>

@@ -1,5 +1,12 @@
 <?php 
 	session_start();
+	if (isset($_SESSION['UserID']))
+	{
+		if($_SESSION['UserID'] !='-1')
+		{
+			Header('Location: index.php');
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,14 +20,14 @@
 		<?php 
 			if(isset($_GET['US'])) 
 			{
-				if($_GET['US']=='False') 
+				if($_GET['US']=='0') 
 					{
 						echo(' Username does not fit parameters.');
 					} 
 			} 
 			if(isset($_GET['UQ'])) 
 			{
-				if($_GET['UQ']=='False') 
+				if($_GET['UQ']=='0') 
 					{
 						echo(' Username is alreaday taken.');
 					} 
@@ -34,7 +41,7 @@
 		<?php 
 			if(isset($_GET['PS'])) 
 			{
-				if($_GET['PS']=='False') 
+				if($_GET['PS']=='0') 
 					{
 						echo(' Password does not fit parameters.');
 					} 
@@ -46,7 +53,7 @@
 		<?php 
 		if(isset($_GET['PD'])) 
 			{
-				if($_GET['PD']=='False') 
+				if($_GET['PD']=='0') 
 					{
 						echo(' Passwords are not the same.');
 					} 
@@ -58,18 +65,18 @@
 		<?php 
 			if(isset($_GET['FS'])) 
 			{
-				if($_GET['FS']=='False') 
+				if($_GET['FS']=='0') 
 					{
 						echo(' First Name does not fit parameters.');
 					} 
 			} ?>
 		<br>
 		Surname:
-		<input type="text" name="NSName" required>
+		<input type="text" name="NSName">
 		<?php 
 			if(isset($_GET['SS'])) 
 			{
-				if($_GET['SS']=='False') 
+				if($_GET['SS']=='0') 
 					{
 						echo(' Surname does not fit parameters.');
 					} 

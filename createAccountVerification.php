@@ -1,86 +1,95 @@
 <?php 
 	session_start();
-	$usernameSafe=True;
-	$usernameUnique=True;
-	$passwordSafe=True;
-	$passwordDif=True;
-	$EmailClean=True;
-	$EmailUnique=True;
-	$Fnamesafe=True;
-	$SNamesafe=True;
+	$usernameSafe='1';
+	$usernameUnique='1';
+	$passwordSafe='1';
+	$passwordDif='1';
+	$EmailClean='1';
+	$EmailUnique='1';
+	$Fnamesafe='1';
+	$SNamesafe='1';
 	require('connect.php');
 	//username is clean?
-	$username= filter_var($_POST['Nusername'], FILTER_SANITIZE_EMAIL);
-	if (($username!=$_POST['Nusername']) or (strlen($username)<8) or (strlen($username)>32)) 
+	$username= filter_var($_POST['NUsername'], FILTER_SANITIZE_EMAIL);
+	if (($username!=$_POST['NUsername']) or (strlen($username)<8) or (strlen($username)>32)) 
 	{
-		$usernameSafe=False;
+		$usernameSafe='0';
 	}
 	//username is unique?
 	else
 	{
 		$qry='SELECT UserID FROM Users WHERE(username = "'.$username.'");';
-		$answertable = mysqlu_query($connection, $qry);
-	 	if (sqli_num_rows($answertable!=0))
+		$answertable = mysqli_query($connection, $qry);
+	 	if (mysqli_num_rows($answertable)!=0)
 		{
 			//username is taken
-			$usernameUnique= False;
+			$usernameUnique= '0';
 		}
 	}
 	//Password1 is clean?
-	$Password1= filter_var($_POST['NPassword1'], FILTER_SANITIZE_EMAIL);
-	if (($Password1!=$_POST['NPassword1']) or (strlen($Password1)<8) or (strlen($Password1)>32)) 
+	$Password1= filter_var($_POST['NPassword'], FILTER_SANITIZE_EMAIL);
+	if (($Password1!=$_POST['NPassword']) or (strlen($Password1)<8) or (strlen($Password1)>32)) 
 	{
-		$passwordSafe=False;
+		$passwordSafe='0';
 	}
 	//Password2 is clean?
 	$Password2= filter_var($_POST['NPassword2'], FILTER_SANITIZE_EMAIL);
 	if (($Password2!=$_POST['NPassword2']) or (strlen($Password2)<8) or (strlen($Password2)>32)) 
 	{
-		$passwordSafe=False;
+		$passwordSafe='0';
 	}
 	//Password1=Password2?
 	if ($Password1!=$Password2)
 	{
-		$passwordDif=False;
+		$passwordDif='0';
 	}
 	//Email is clean?
 	$Email= filter_var($_POST['NEmail'], FILTER_SANITIZE_EMAIL);
 	if (($Email!=$_POST['NEmail'])) 
 	{
-		$EmailSafe=False;
+		$EmailSafe='0';
 	}
 	//Email is unique?	
 	else
 	{
 		$qry='SELECT Email FROM Users WHERE(Email = "'.$Email.'");';
-	 	if (sqli_num_rows($answertable!=0))
+	 	if (mysqli_num_rows($answertable)!=0)
 		{
 			//Email is taken
-			$EmailUnique= False;
+			$EmailUnique= '0';
 		}
 	}
 	//Fname is clean?
 	$Fname= filter_var($_POST['NFName'], FILTER_SANITIZE_EMAIL);
 	if (($Fname!=$_POST['NFName'])) 
 	{
-		$Fnamesafe=False;
+		$Fnamesafe='0';
 	}
 	//SName is clean?
 	$Sname= filter_var($_POST['NSName'], FILTER_SANITIZE_EMAIL);
 	if (($Sname!=$_POST['NSName'])) 
 	{
-		$Snamesafe=False;
+		$Snamesafe='0';
 	}
-	//If true then create user
-	if ($usernameSafe and $usernameUnique and $passwordSafe and $passwordDif and $EmailClean and $EmailUnique and $Fnamesafe and $SNamesafe)
+	//If '1' then create user
+	if (($usernameSafe + $usernameUnique + $passwordSafe + $passwordDif + $EmailClean + $EmailUnique + $Fnamesafe + $SNamesafe) == 8)
 	{
-		$qry='INSERT INTO Users (Username, Password, FName, SName, Email, ProfPic) VALUES ("'.$username.'","'.(md5($Password1)).'","'.$FName.'","'.$SName.'","'.$Email.'","default.php")';
-		$answertable = mysqli_query($connection,$qry);
+		$qry='INSERT INTO Users(Username, Password, FName, SName, Email, ProfPic) VALUES ("'.$username.'","'.(md5($Password1)).'","'.$Fname.'","'.$Sname.'","'.$Email.'","default.png")';
+		$answertable=mysqli_query($connection,$qry);
 		//find userID for them
-		$qry='SELECT UserID FROM Users WHERE (Username="'.$Username.'");';
-		$answertable = mysqli_query($connection,$qry);
-		list($col1)=$answertable;
+		$qry='SELECT UserID FROM Users WHERE (Username = "'.$username.'");';
+		$answertable = (mysqli_query($connection,$qry));
+		$test = mysqli_num_rows($answertable);
+		list($col1)= mysqli_fetch_row($answertable);
 		$_SESSION['UserID']=$col1;
+
+
+		//create mymusic playlist
+
+		//create link between mymusic and userID
+
+
+		//go to index page
 		Header('Location: index.php');
 	}
 	else
