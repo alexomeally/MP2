@@ -18,7 +18,7 @@
 	//username is unique?
 	else
 	{
-		$qry='SELECT UserID FROM Users WHERE(username = "'.$username.'");';
+		$qry='SELECT UserID FROM users WHERE(username = "'.$username.'");';
 		$answertable = mysqli_query($connection, $qry);
 	 	if (mysqli_num_rows($answertable)!=0)
 		{
@@ -52,7 +52,7 @@
 	//Email is unique?	
 	else
 	{
-		$qry='SELECT Email FROM Users WHERE(Email = "'.$Email.'");';
+		$qry='SELECT Email FROM users WHERE(Email = "'.$Email.'");';
 	 	if (mysqli_num_rows($answertable)!=0)
 		{
 			//Email is taken
@@ -74,21 +74,26 @@
 	//If '1' then create user
 	if (($usernameSafe + $usernameUnique + $passwordSafe + $passwordDif + $EmailClean + $EmailUnique + $Fnamesafe + $SNamesafe) == 8)
 	{
-		$qry='INSERT INTO Users(Username, Password, FName, SName, Email, ProfPic) VALUES ("'.$username.'","'.(md5($Password1)).'","'.$Fname.'","'.$Sname.'","'.$Email.'","default.png")';
-		$answertable=mysqli_query($connection,$qry);
+		$qry='INSERT INTO users(Username,UPassword,FName,SName,Email,ProfPic) VALUES ("'.$username.'","'.(md5($Password1)).'","'.$Fname.'","'.$Sname.'","'.$Email.'","default.png");';
+		mysqli_query($connection,$qry);
 		//find userID for them
-		$qry='SELECT UserID FROM Users WHERE (Username = "'.$username.'");';
+		$qry='SELECT UserID FROM users WHERE (Username = "'.$username.'");';
 		$answertable = (mysqli_query($connection,$qry));
-		$test = mysqli_num_rows($answertable);
 		list($col1)= mysqli_fetch_row($answertable);
 		$_SESSION['UserID']=$col1;
 
 
 		//create mymusic playlist
-
+		$qry='INSERT INTO playlists(UserID, Playlistname, DateCreated, Art, Description) VALUES ("'.$_SESSION['UserID'].'","'.$Fname.' '.$Sname."'".'s Music", "'.date('Y-m-d H:i:s').'", "defaultpl.png", "Music that '.$Fname.' likes");';
+		mysqli_query($connection, $qry);
+		//find playlistID
+		$qry='SELECT PlaylistID FROM playlists WHERE (UserID="'.$_SESSION['UserID'].'");';
+		$answertable=mysqli_query($connection, $qry);
+		list($col1)=mysqli_fetch_row($answertable);
+		$PlaylistID = $col1;
 		//create link between mymusic and userID
-
-
+		$qry='INSERT INTO mymusic(UserID, PlaylistID) VALUES ("'.$_SESSION['UserID'].'", "'.$PlaylistID.'");';
+		mysqli_query($connection, $qry);
 		//go to index page
 		Header('Location: index.php');
 	}

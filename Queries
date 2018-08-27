@@ -1,20 +1,22 @@
-User Login
-
-SELECT UserID /* can possibly change depending on what is needed*/
+/*User Login: checks if usernme and password are correct and then outputs the userID*/ 
+SELECT UserID 
 FROM Users 
 WHERE (username = "'.$username.'" AND UPassword="'.$UPassword.'");
-
-How many times a song has been played
-
-SELECT COUNT(*) 
-FROM listens 
-WHERE (TrackID="'.$trackid.'"); 
+/*//////////////////////////////////WORKS///////////////////////////////////////////*/
 
 
 
 
-Album Tracks
 
-SELECT Trackname, Length, mp3file
-FROM Tracks
-WHERE 
+/*/Genres listened to (does not count the same song multiple times)/*/
+SELECT Genre, Count(*)
+FROM tracks 
+WHERE (TrackID in 
+	(
+	SELECT TrackID
+	FROM listens
+	WHERE (UserID="4")
+	)
+)
+GROUP BY Genre;
+/*///////////////////////////WORKS//////////////////////////////////*/
