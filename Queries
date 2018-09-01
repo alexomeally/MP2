@@ -3,11 +3,6 @@ SELECT UserID
 FROM Users 
 WHERE (username = "'.$username.'" AND UPassword="'.$UPassword.'");
 /*//////////////////////////////////WORKS///////////////////////////////////////////*/
-
-
-
-
-
 /*/Genres listened to (does not count the same song multiple times)/*/
 SELECT Genre, Count(*)
 FROM tracks 

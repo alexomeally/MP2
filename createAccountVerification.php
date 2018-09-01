@@ -95,7 +95,7 @@
 		$qry='INSERT INTO mymusic(UserID, PlaylistID) VALUES ("'.$_SESSION['UserID'].'", "'.$PlaylistID.'");';
 		mysqli_query($connection, $qry);
 		//go to index page
-		Header('Location: index.php');
+		Header('Location: index.php');	
 	}
 	else
 	{

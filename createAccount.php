@@ -88,7 +88,9 @@
 
 
 	</form>
-
+	<form action="login.php">
+		<input type="submit" name="Cancel" Value="Cancel">
+	</form>
 
 </body>
 </html>

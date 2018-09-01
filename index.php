@@ -19,5 +19,8 @@
 	<form action="login.php">
 		<input type="submit" name="submit" value="returnToLogin">
 	</form>
+	<form action="myAccount.php">
+		<input type="submit" name="submit" value="My Account">
+	</form>
 </body>
 </html>
