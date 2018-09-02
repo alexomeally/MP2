@@ -95,5 +95,9 @@
 		
 
 	</form>
+
+	<form action="deleteAccount.php">
+		<input type="submit" name="delete" value="Delete Account">
+	</form>
 </body>
 </html>
